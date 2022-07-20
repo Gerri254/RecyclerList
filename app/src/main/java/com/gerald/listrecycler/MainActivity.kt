@@ -22,16 +22,16 @@ class MainActivity : AppCompatActivity() {
             val age = faker.number.between(18, 75)
             val university = faker.university.name()
             val phone = faker.phoneNumber.phoneNumber()
-           // Log.d("FAKER", "$name : $email :$address : $age : $university")//debugging
+            // Log.d("FAKER", "$name : $email :$address : $age : $university")//debugging
             val person = Person(name, email, address, age, phone)
             peopleList.add(person)
         }
-       // peopleList.forEach{Log.d("PEOPLE",it.name)}
+        // peopleList.forEach{Log.d("PEOPLE",it.name)}
 
-        val RecyclerPeople : RecyclerView = findViewById(R.id.recyclerViewPeople)
+        val RecyclerPeople: RecyclerView = findViewById(R.id.recyclerViewPeople)
         RecyclerPeople.layoutManager = LinearLayoutManager(this)
 
-        val adapter = CustomAdapter(peopleList)
+        val adapter = CustomAdapter(peopleList, this)
         RecyclerPeople.adapter = adapter
 
 
